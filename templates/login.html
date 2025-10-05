@@ -1,0 +1,27 @@
+<!-- templates/login.html -->
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Přihlášení</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Přihlášení</h1>
+        <a href="/">Zpět na hlavní stranu</a>
+    </header>
+
+    <main>
+        <form action="/login" method="post">
+            <label for="username">Uživatelské jméno:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Heslo:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Přihlásit se</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+<!-- templates/register.html -->
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrace</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container auth-container">
+        <h2>Registrace</h2>
+        <form method="post" action="/register" class="auth-form">
+            <input type="text" name="username" placeholder="Uživatelské jméno" required>
+            <input type="password" name="password" placeholder="Heslo" required>
+            <button type="submit">Registrovat se</button>
+        </form>
+        <p>Už máš účet? <a href="/login">Přihlas se zde</a></p>
+    </div>
+</body>
+</html>
