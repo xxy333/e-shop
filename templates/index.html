@@ -1,22 +1,40 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="cs">
 <head>
-    <title>E-shop</title>
+    <meta charset="UTF-8">
+    <title>Jednoduchý E-shop</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Produkty</h1>
-    <ul>
-        {% for product in products %}
-            <li>{{ product.name }} – {{ product.price }} Kč</li>
-        {% endfor %}
-    </ul>
+    <header>
+        <h1>Jednoduchý E-shop</h1>
+        {% if username %}
+            <p>Vítej, {{ username }} | <a href="/logout">Odhlásit se</a></p>
+        {% else %}
+            <a href="/login">Přihlášení</a> |
+            <a href="/register">Registrace</a>
+        {% endif %}
+    </header>
 
-    <h2>Přidat produkt</h2>
-    <form action="/add" method="post">
-        <input type="text" name="name" placeholder="Název" required>
-        <input type="number" name="price" step="0.01" placeholder="Cena" required>
-        <button type="submit">Přidat</button>
-    </form>
+    <main>
+        <h2>Produkty</h2>
+        <ul class="product-list">
+            {% for product in products %}
+                <li>{{ product.name }} &ndash; {{ product.price }} Kč</li>
+            {% endfor %}
+        </ul>
+
+        {% if username %}
+        <section class="add-product">
+            <h3>Přidat produkt</h3>
+            <form action="/add" method="post">
+                <input type="text" name="name" placeholder="Název" required>
+                <input type="number" name="price" step="0.01" placeholder="Cena" required>
+                <button type="submit">Přidat</button>
+            </form>
+        </section>
+        {% endif %}
+    </main>
 </body>
 </html>
